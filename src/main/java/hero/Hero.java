@@ -1,5 +1,6 @@
-import java.util.ArrayList;
+package hero;
 
+import java.util.ArrayList;
 public class Hero {
     private int puissance;
     private String nom;
@@ -8,7 +9,7 @@ public class Hero {
     public Hero() {
         // initialise instance variables
         puissance = 0;
-        nom = "Hero";
+        nom = "hero.Hero";
     }
 
     public int ajouterPuissance(int y) {

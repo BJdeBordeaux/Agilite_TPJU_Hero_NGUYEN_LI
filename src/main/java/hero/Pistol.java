@@ -1,3 +1,5 @@
+package hero;
+
 public class Pistol {
     private int puissance = 0;
     private Hero hero = null;

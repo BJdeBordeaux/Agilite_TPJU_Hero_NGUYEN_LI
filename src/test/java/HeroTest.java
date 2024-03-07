@@ -1,9 +1,10 @@
+import hero.Hero;
+import hero.Pistol;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-
+import org.junit.platform.suite.api.SelectPackages;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -12,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author  (your name)
  * @version (a version number or a date)
  */
+@SelectPackages("src/test/java/cucumbers/exemple.feature")
 public class HeroTest
 {
     private Hero unHero;
