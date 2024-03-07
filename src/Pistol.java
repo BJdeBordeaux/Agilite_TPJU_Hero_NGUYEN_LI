@@ -5,6 +5,10 @@ public class Pistol {
     public Pistol() {
     }
 
+    public Pistol(int puissance) {
+        this.puissance = puissance;
+    }
+
 
     public Hero getHero() {
         return hero;

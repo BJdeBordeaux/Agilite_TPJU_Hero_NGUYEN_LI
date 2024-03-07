@@ -90,6 +90,21 @@ public class HeroTest
         ArrayList<Pistol> pistols = hero.getPistols();
         return pistols.contains(pistol);
     }
+
+    @Test
+    public void testPuissanceTotal(){
+        // puissance personnelle
+        unHero.setPuissance(1);
+
+        // puissance de pistols
+        unHero.ajouterPistol(unPistol); // 100
+
+        Pistol petitPistol = new Pistol(10);
+        unHero.ajouterPistol(petitPistol); // 10
+
+        // puissance total
+        assertEquals(111, unHero.puissanceTotal());
+    }
 }
 
 

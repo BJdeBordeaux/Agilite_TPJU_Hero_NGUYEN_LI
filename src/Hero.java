@@ -61,4 +61,14 @@ public class Hero {
     public ArrayList<Pistol> getPistols() {
         return this.pistols;
     }
+
+    public int puissanceTotal() {
+        int puissanceTotal = this.puissance;
+
+        for (Pistol pistol : this.pistols) {
+            puissanceTotal += pistol.getPuissance();
+        }
+
+        return puissanceTotal;
+    }
 }
