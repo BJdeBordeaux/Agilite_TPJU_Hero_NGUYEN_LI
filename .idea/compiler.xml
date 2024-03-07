@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Agilite_TPJU_Hero_NGUYEN_LI" target="17" />
+      <module name="Agilite_TPJU_Hero_NGUYEN_LI" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
