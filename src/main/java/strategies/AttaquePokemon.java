@@ -8,7 +8,8 @@ import pokemon.Pokemon;
 
 import java.util.List;
 
-public class AttaquePokemon implements AttaqueStategie {
+public final class AttaquePokemon implements AttaqueStategie {
+    private static AttaquePokemon instance;
     @Override
     public int attaque(Hero hero, List<ArmeSpecial> armeSpecials) {
         int counter = hero.getPuissance();
@@ -18,5 +19,11 @@ public class AttaquePokemon implements AttaqueStategie {
             }
         }
         return counter;
+    }
+    public static AttaquePokemon getInstance() {
+        if (instance == null) {
+            instance = new AttaquePokemon();
+        }
+        return instance;
     }
 }
