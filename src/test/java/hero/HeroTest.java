@@ -1,36 +1,22 @@
-import hero.Hero;
-import hero.Pistol;
+package hero;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
-import org.junit.platform.suite.api.SelectPackages;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * The test class HeroTest.
- *
- * @author  (your name)
- * @version (a version number or a date)
- */
-@SelectPackages("src/test/java/cucumbers/exemple.feature")
 public class HeroTest
 {
     private Hero unHero;
     private Pistol unPistol;
 
     /**
-     * Default constructor for test class HeroTest
+     * Default constructor for test class hero.HeroTest
      */
     public HeroTest()
     {
     }
 
-    /**
-     * Sets up the test fixture.
-     *
-     * Called before every test case method.
-     */
     @BeforeEach
     public void setUp()
     {
@@ -40,11 +26,6 @@ public class HeroTest
         unPistol.setPuissance(100);
     }
 
-    /**
-     * Tears down the test fixture.
-     *
-     * Called after every test case method.
-     */
     @AfterEach
     public void tearDown()
     {

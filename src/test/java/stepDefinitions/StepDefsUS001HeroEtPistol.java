@@ -1,9 +1,9 @@
-package herowithcucumber;
+package stepDefinitions;
 import io.cucumber.java.en.*;
 import hero.Hero;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class StepDefinitions {
+public class StepDefsUS001HeroEtPistol {
     private Hero currentHero;
 
     @Given("a hero has {int} without a pistol")
