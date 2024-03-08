@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pokemon.Attack;
 import pokemon.Pokemon;
+import strategies.AttaquePistol;
+import strategies.AttaquePokemon;
 
 import java.util.ArrayList;
 
@@ -18,9 +20,6 @@ public class SpecialHeroTest
 
     private Pokemon pokemon;
 
-    /**
-     * Default constructor for test class hero.SpecialHeroTest
-     */
     public SpecialHeroTest()
     {
     }
@@ -29,7 +28,7 @@ public class SpecialHeroTest
     public void setUp()
     {
         System.out.println("setUp");
-        unSpecialHero = new SpecialHero("Batman", 100);
+        unSpecialHero = new SpecialHero("Batman", 1);
         unPistol = new Pistol();
         unPistol.setPuissance(100);
         pokemon = new Pokemon("pikachu", 10);
@@ -47,21 +46,24 @@ public class SpecialHeroTest
     {
         unSpecialHero.ajouterPuissance(100);
         unSpecialHero.ajouterPistol(unPistol);
-        assertEquals(unSpecialHero.attaque(), 300);
+        unSpecialHero.setAttaqueStategie(AttaquePistol.getInstance());
+        assertEquals(201, unSpecialHero.attaque());
     }
 
     @Test
     public void testSetAttaqueStategie()
     {
-//        unSpecialHero.setAttaqueStategie();
+        unSpecialHero.setAttaqueStategie(AttaquePokemon.getInstance());
+        unSpecialHero.ajouterArmes(pokemon);
+        assertEquals(1001, unSpecialHero.attaque());
     }
 
     @Test
     public void testAjouterArmes()
     {
         unSpecialHero.ajouterArmes(pokemon);
-
-        assertEquals(unSpecialHero.attaque(), 100);
+        unSpecialHero.setAttaqueStategie(AttaquePokemon.getInstance());
+        assertEquals(1001, unSpecialHero.attaque());
     }
 
 }
