@@ -27,7 +27,6 @@ public class SpecialHeroTest
     @BeforeEach
     public void setUp()
     {
-        System.out.println("setUp");
         unSpecialHero = new SpecialHero("Batman", 1);
         unPistol = new Pistol();
         unPistol.setPuissance(100);

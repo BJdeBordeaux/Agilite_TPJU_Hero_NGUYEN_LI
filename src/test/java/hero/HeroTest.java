@@ -20,7 +20,6 @@ public class HeroTest
     @BeforeEach
     public void setUp()
     {
-        System.out.println("setUp");
         unHero = new Hero();
         unPistol = new Pistol();
         unPistol.setPuissance(100);
