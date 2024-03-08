@@ -14,10 +14,7 @@ public class AttaquePokemon implements AttaqueStategie {
         int counter = hero.getPuissance();
         for (ArmeSpecial armeSpecial : armeSpecials) {
             if (armeSpecial instanceof Pokemon) {
-                List<Attack> listAttack = ((Pokemon) armeSpecial).getAttacks();
-                for (Attack attack : listAttack) {
-                    counter += attack.getDamage();
-                }
+                counter+=((Pokemon) armeSpecial).getPuissance();
             }
         }
         return counter;

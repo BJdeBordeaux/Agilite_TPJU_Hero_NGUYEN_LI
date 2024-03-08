@@ -53,4 +53,12 @@ public class Pokemon implements ArmeSpecial {
     public void levelUp(int x) {
         level += x;
     }
+    @Override
+    public int getPuissance() {
+        int cpt = 0;
+        for (Attack attack : attacks) {
+            cpt += attack.getDamage();
+        }
+        return cpt;
+    }
 }
