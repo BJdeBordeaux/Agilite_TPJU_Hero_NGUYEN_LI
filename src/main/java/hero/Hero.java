@@ -11,6 +11,10 @@ public class Hero {
         puissance = 0;
         nom = "hero.Hero";
     }
+    public Hero(String nom, int puissance) {
+        this.nom = nom;
+        this.puissance = puissance;
+    }
 
     public int ajouterPuissance(int y) {
         this.puissance += y;

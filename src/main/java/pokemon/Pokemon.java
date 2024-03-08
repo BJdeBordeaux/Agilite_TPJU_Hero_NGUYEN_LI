@@ -1,9 +1,10 @@
 package pokemon;
 
+import interfaces.ArmeSpecial;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pokemon {
+public class Pokemon implements ArmeSpecial {
     private String name;
     private int level;
     private List<Attack> attacks;
@@ -15,7 +16,11 @@ public class Pokemon {
         attacks = new ArrayList<>();
         attacks.add(quickAttack);
     }
-
+    public Pokemon(String name, int level) {
+        this.name = name;
+        this.level = level;
+        attacks = new ArrayList<>();
+    }
 
     public String getName() {
         return name;
