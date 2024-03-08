@@ -20,11 +20,11 @@ public class MainDriver {
         hero.ajouterPistol(pistol);
 
         // Attaque avec Pistol
-        hero.setAttaqueStategie(new AttaquePistol());
+        hero.setAttaqueStategie(AttaquePistol.getInstance());
         System.out.println(hero.attaque()); // 110
 
         // Ajouter une arme
-        hero.setAttaqueStategie(new AttaquePokemon());
+        hero.setAttaqueStategie(AttaquePokemon.getInstance());
         System.out.println(hero.attaque()); // 110
     }
 }
