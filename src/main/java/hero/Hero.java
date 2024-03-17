@@ -2,56 +2,55 @@ package hero;
 
 import java.util.ArrayList;
 public class Hero {
-    private int puissance;
-    private String nom;
-    private ArrayList<Pistol> pistols = new ArrayList<Pistol>();
+    private int strength;
+    private String name;
+    private ArrayList<Pistol> pistols = new ArrayList<>();;
 
     public Hero() {
         // initialise instance variables
-        puissance = 0;
-        nom = "hero.Hero";
+        strength = 0;
+        name = "hero.Hero";
     }
-    public Hero(String nom, int puissance) {
-        this.nom = nom;
-        this.puissance = puissance;
-    }
-
-    public int ajouterPuissance(int y) {
-        this.puissance += y;
-        return this.puissance;
+    public Hero(String name, int strength) {
+        this.name = name;
+        this.strength = strength;
     }
 
-    public int getPuissance() {
-        return puissance;
+    public int increaseStrength(int y) {
+        this.strength += y;
+        return this.strength;
     }
 
-    public void setPuissance(int newPuissance) {
-        this.puissance = newPuissance;
+    public int getStrength() {
+        return strength;
     }
 
-    public String getNom() {
-        return nom;
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
-    public void setNom(String newNom) {
-        this.nom = newNom;
+    public String getName() {
+        return name;
     }
 
-    public void ajouterPistol(Pistol pistol) {
+    public void setName(String newNom) {
+        this.name = newNom;
+    }
+
+    public void addPistol(Pistol pistol) {
 
         // désarmer le propriétaire du pistol
         Hero proprietaire = pistol.getHero();
         if (proprietaire != null) {
-            proprietaire.retirerPistol(pistol);
+            proprietaire.removePistol(pistol);
             pistol.setHero(null);
         }
-
         // armer cet héro
         this.pistols.add(pistol);
         pistol.setHero(this);
     }
 
-    public Pistol retirerPistol(Pistol pistol) {
+    public Pistol removePistol(Pistol pistol) {
         // si ce pistol est dans la liste des pistol de cet héro
         // on va le retirer
         if (pistols.contains(pistol)) {
@@ -67,13 +66,13 @@ public class Hero {
         return this.pistols;
     }
 
-    public int puissanceTotal() {
-        int puissanceTotal = this.puissance;
+    public int totalStrength() {
+        int totalStrength = this.strength;
 
         for (Pistol pistol : this.pistols) {
-            puissanceTotal += pistol.getPuissance();
+            totalStrength += pistol.getPower();
         }
 
-        return puissanceTotal;
+        return totalStrength;
     }
 }

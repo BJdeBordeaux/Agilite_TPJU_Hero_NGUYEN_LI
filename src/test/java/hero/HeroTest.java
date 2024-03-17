@@ -7,86 +7,81 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class HeroTest
 {
-    private Hero unHero;
-    private Pistol unPistol;
+    private Hero hero;
+    private Pistol pistol;
 
     /**
      * Default constructor for test class hero.HeroTest
      */
-    public HeroTest()
-    {
+    public HeroTest() {
+
     }
 
     @BeforeEach
-    public void setUp()
-    {
-        unHero = new Hero();
-        unPistol = new Pistol();
-        unPistol.setPuissance(100);
+    public void setUp() {
+        hero = new Hero();
+        pistol = new Pistol();
+        pistol.setPower(100);
     }
 
     @AfterEach
-    public void tearDown()
-    {
+    public void tearDown() {
     }
 
     @Test
-    public void testSetNom(){
+    public void testSetName() {
         Hero unHero = new Hero();
-        unHero.setNom("Bat Man");
-
-        assertEquals(unHero.getNom(), "Bat Man");
+        unHero.setName("Bat Man");
+        assertEquals(unHero.getName(), "Bat Man");
     }
 
     @Test
-    public void testSetPistol()
-    {
+    public void testSetPistol() {
     }
 
     @Test
     public void testAddPistol()
     {
-        unHero.ajouterPistol(unPistol);
-        ArrayList<Pistol> pistols = unHero.getPistols();
-        assertTrue(pistols.contains(unPistol));
+        hero.addPistol(pistol);
+        ArrayList<Pistol> pistols = hero.getPistols();
+        assertTrue(pistols.contains(pistol));
     }
 
     @Test
-    public void testRemovePistol()
-    {
-        unHero.ajouterPistol(unPistol);
-        unHero.retirerPistol(unPistol);
-        assertFalse(heroAvoirPistol(unHero, unPistol));
+    public void testRemovePistol() {
+        hero.addPistol(pistol);
+        hero.removePistol(pistol);
+        assertFalse(heroHavePistol(hero, pistol));
     }
 
     @Test
-    public void testVolerPistol()
+    public void testStealPistol()
     {
         Hero unAutreHero = new Hero();
-        unAutreHero.ajouterPistol(unPistol);
-        unHero.ajouterPistol(unPistol);
-        assertTrue(heroAvoirPistol(unHero, unPistol));
-        assertFalse(heroAvoirPistol(unAutreHero, unPistol));
+        unAutreHero.addPistol(pistol);
+        hero.addPistol(pistol);
+        assertTrue(heroHavePistol(hero, pistol));
+        assertFalse(heroHavePistol(unAutreHero, pistol));
     }
 
-    private Boolean heroAvoirPistol(Hero hero, Pistol pistol) {
+    private Boolean heroHavePistol(Hero hero, Pistol pistol) {
         ArrayList<Pistol> pistols = hero.getPistols();
         return pistols.contains(pistol);
     }
 
     @Test
-    public void testPuissanceTotal(){
+    public void testTotalStrength(){
         // puissance personnelle
-        unHero.setPuissance(1);
+        hero.setStrength(1);
 
         // puissance de pistols
-        unHero.ajouterPistol(unPistol); // 100
+        hero.addPistol(pistol); // 100
 
         Pistol petitPistol = new Pistol(10);
-        unHero.ajouterPistol(petitPistol); // 10
+        hero.addPistol(petitPistol); // 10
 
         // puissance total
-        assertEquals(111, unHero.puissanceTotal());
+        assertEquals(111, hero.totalStrength());
     }
 }
 

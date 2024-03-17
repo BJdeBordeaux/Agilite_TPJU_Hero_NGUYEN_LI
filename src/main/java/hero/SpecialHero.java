@@ -1,29 +1,46 @@
 package hero;
 
-import interfaces.ArmeSpecial;
-import interfaces.AttaqueStategie;
+import interfaces.SpecialWeapon;
+import interfaces.AttackStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SpecialHero extends Hero {
-    private AttaqueStategie attaqueStategie;
-    private List<ArmeSpecial> listArmeSpecials =  new ArrayList();
-    public SpecialHero(String nom, int puissance) {
-        super(nom, puissance);
+    private AttackStrategy attackStrategy;
+
+    private List<SpecialWeapon> specialWeapons;
+
+    public SpecialHero(String nom, int strength) {
+        super(nom, strength);
+        specialWeapons = new ArrayList<>();
     }
-    public int attaque() {
-        return attaqueStategie.attaque(this, listArmeSpecials);
+
+    public AttackStrategy getAttackStrategy() {
+        return attackStrategy;
     }
-    public void setAttaqueStategie(AttaqueStategie attaqueStategie) {
-        this.attaqueStategie = attaqueStategie;
+
+    public List<SpecialWeapon> getSpecialWeapons() {
+        return specialWeapons;
     }
-    public void ajouterArmes(ArmeSpecial armeSpecial) {
-        if (armeSpecial instanceof Pistol) {
-            this.ajouterPistol((Pistol) armeSpecial);
+
+    public void setSpecialWeapons(List<SpecialWeapon> specialWeapons) {
+        this.specialWeapons = specialWeapons;
+    }
+
+
+    public int attack() {
+        return attackStrategy.attack(this, specialWeapons);
+    }
+    public void setAttackStrategy(AttackStrategy attackStrategy) {
+        this.attackStrategy = attackStrategy;
+    }
+    public void addWeapons(SpecialWeapon specialweapon) {
+        if (specialweapon instanceof Pistol) {
+            this.addPistol((Pistol) specialweapon);
         }
         else{
-            listArmeSpecials.add(armeSpecial);
+            specialWeapons.add(specialweapon);
         }
     }
 }

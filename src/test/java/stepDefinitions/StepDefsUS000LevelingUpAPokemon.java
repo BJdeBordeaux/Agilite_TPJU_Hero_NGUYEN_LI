@@ -36,20 +36,12 @@ public class StepDefsUS000LevelingUpAPokemon {
 
     @When("the trainer levels up {string} by {int}")
     public void theTrainerLevelsUpBy(String pokemonName, int levelUpAmount) {
-        if (pokemon.getName().equals(pokemonName)) {
-            pokemon.levelUp(levelUpAmount);
-        } else {
-            throw new RuntimeException("Incorrect Pokemon name in the When step");
-        }
+        pokemon.levelUp(levelUpAmount);
     }
 
     @Then("{string}'s level should be {int}")
     public void pokemonSLevelShouldBe(String pokemonName, int expectedLevel) {
-        if (pokemon.getName().equals(pokemonName)) {
-            int actualLevel = pokemon.getLevel();
-            Assert.assertEquals("Unexpected Pokemon level", expectedLevel, actualLevel);
-        } else {
-            throw new RuntimeException("Incorrect Pokemon name in the Then step");
-        }
+        int actualLevel = pokemon.getLevel();
+        Assert.assertEquals("Unexpected Pokemon level", expectedLevel, actualLevel);
     }
 }

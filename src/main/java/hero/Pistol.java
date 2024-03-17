@@ -1,16 +1,14 @@
 package hero;
 
-import interfaces.ArmeSpecial;
-
 public class Pistol {
-    private int puissance = 0;
+    private int power = 0;
     private Hero hero = null;
 
     public Pistol() {
     }
 
-    public Pistol(int puissance) {
-        this.puissance = puissance;
+    public Pistol(int power) {
+        this.power = power;
     }
 
 
@@ -22,11 +20,11 @@ public class Pistol {
         this.hero = hero;
     }
 
-    public int getPuissance() {
-        return this.puissance;
+    public int getPower() {
+        return this.power;
     }
 
-    public void setPuissance(int puissance) {
-        this.puissance = puissance;
+    public void setPower(int power) {
+        this.power = power;
     }
 }

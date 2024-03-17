@@ -1,4 +1,8 @@
-Feature: Is hero get more power when he get a pistol?
+Feature: Empowering Hero with Pistol
+
+  As a player,
+  I want to be able to increase my hero's power when acquiring a pistol,
+  So that I can utilize firearms to enhance my capabilities in combat.
 
   Scenario Outline: Hero doesn't have a pistol
     Given a hero has <power> without a pistol

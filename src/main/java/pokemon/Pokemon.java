@@ -1,10 +1,10 @@
 package pokemon;
 
-import interfaces.ArmeSpecial;
+import interfaces.SpecialWeapon;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pokemon implements ArmeSpecial {
+public class Pokemon implements SpecialWeapon {
     private String name;
     private int level;
     private List<Attack> attacks;
@@ -53,8 +53,9 @@ public class Pokemon implements ArmeSpecial {
     public void levelUp(int x) {
         level += x;
     }
+
     @Override
-    public int getPuissance() {
+    public int getPower() {
         int cpt = 0;
         for (Attack attack : attacks) {
             cpt += attack.getDamage();

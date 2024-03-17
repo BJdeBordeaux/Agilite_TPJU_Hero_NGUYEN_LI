@@ -2,10 +2,9 @@ package client;
 
 import hero.Pistol;
 import hero.SpecialHero;
-import interfaces.AttaqueStategie;
 import pokemon.Pokemon;
-import strategies.AttaquePistol;
-import strategies.AttaquePokemon;
+import strategies.PistolAttack;
+import strategies.PokemonAttack;
 
 public class MainDriver {
     public static void main(String[] args) {
@@ -16,15 +15,15 @@ public class MainDriver {
         Pistol pistol = new Pistol(50);
 
         // Ajouter des armes
-        hero.ajouterArmes(pikachu);
-        hero.ajouterPistol(pistol);
+        hero.addWeapons(pikachu);
+        hero.addPistol(pistol);
 
         // Attaque avec Pistol
-        hero.setAttaqueStategie(AttaquePistol.getInstance());
-        System.out.println(hero.attaque()); // 110
+        hero.setAttackStrategy(PistolAttack.getInstance());
+        System.out.println(hero.attack()); // 110
 
         // Ajouter une arme
-        hero.setAttaqueStategie(AttaquePokemon.getInstance());
-        System.out.println(hero.attaque()); // 110
+        hero.setAttackStrategy(PokemonAttack.getInstance());
+        System.out.println(hero.attack()); // 110
     }
 }
