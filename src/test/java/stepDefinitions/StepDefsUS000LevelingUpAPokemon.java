@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StepDefsUS000LevelingUpAPokemon {
     private Pokemon pokemon;
+    private String message;
 
     @Given("the Pokemon's level is {int}")
     public void thePokemonSLevelIs(int initialLevel) {
@@ -19,7 +20,7 @@ public class StepDefsUS000LevelingUpAPokemon {
 
     @When("I increase the Pokemon's level by {int}")
     public void iIncreaseThePokemonSLevelBy(int levelIncrease) {
-        pokemon.levelUp(levelIncrease);
+        message = pokemon.levelUp(levelIncrease);
     }
 
     @Then("the Pokemon's level should be {int}")
@@ -43,5 +44,10 @@ public class StepDefsUS000LevelingUpAPokemon {
     public void pokemonSLevelShouldBe(String pokemonName, int expectedLevel) {
         int actualLevel = pokemon.getLevel();
         Assert.assertEquals("Unexpected Pokemon level", expectedLevel, actualLevel);
+    }
+
+    @Then("the system should display {string}")
+    public void theSystemShouldDisplay(String arg0) {
+        Assert.assertEquals(arg0, message);
     }
 }

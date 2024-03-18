@@ -4,11 +4,14 @@ import hero.SpecialHero;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StepDefsUS002SpecialHero {
     private SpecialHero specialHero;
+
+    private String message;
 
     @Given("a SpecialHero with strength {int}")
     public void aSpecialHeroWithStrength(int strength) {
@@ -18,6 +21,9 @@ public class StepDefsUS002SpecialHero {
     @When("the strength is increased by {int}")
     public void iIncreaseHisOrHerStrengthBy(int increaseAmount) {
         specialHero.setStrength(specialHero.getStrength() + increaseAmount);
+        if (increaseAmount < 0) {
+            message = "Cannot Level Down.";
+        }
     }
 
     @Then("the strength should be {int}")
@@ -46,5 +52,10 @@ public class StepDefsUS002SpecialHero {
     public void specialHeroStrengthShouldBe(String heroName, int expectedStrength) {
         assertEquals(heroName, specialHero.getName());
         assertEquals(expectedStrength, specialHero.getStrength());
+    }
+
+    @Then("the system refuses increasing with the message {string}")
+    public void theSystemShouldRefuseIncreasingWithTheMessage(String arg0) {
+        Assert.assertEquals(arg0, message);
     }
 }

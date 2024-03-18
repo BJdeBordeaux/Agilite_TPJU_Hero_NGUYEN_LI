@@ -1,8 +1,7 @@
 Feature: SpecialHero attacks with different strategies
-
-  As a SpecialHero,
-  I want to be able to employ various attack strategies,
-  So that I can adapt to different opponents and exploit their weaknesses.
+  As a Player,
+  I want to be able attack with different strategies,
+  So that my special hero has increased strength when attacking.
 
   Scenario Outline: attacking with a strategy
     Given there is a SpecialHero named <SpecialHeroName> with a strength of <InitialStrength>

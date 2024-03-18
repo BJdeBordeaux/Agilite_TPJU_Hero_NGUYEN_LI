@@ -5,17 +5,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class HeroTest
-{
+public class HeroTest {
     private Hero hero;
     private Pistol pistol;
-
-    /**
-     * Default constructor for test class hero.HeroTest
-     */
-    public HeroTest() {
-
-    }
 
     @BeforeEach
     public void setUp() {
@@ -30,18 +22,13 @@ public class HeroTest
 
     @Test
     public void testSetName() {
-        Hero unHero = new Hero();
-        unHero.setName("Bat Man");
-        assertEquals(unHero.getName(), "Bat Man");
+        Hero hero = new Hero();
+        hero.setName("Batman");
+        assertEquals(hero.getName(), "Batman");
     }
 
     @Test
-    public void testSetPistol() {
-    }
-
-    @Test
-    public void testAddPistol()
-    {
+    public void testAddPistol() {
         hero.addPistol(pistol);
         ArrayList<Pistol> pistols = hero.getPistols();
         assertTrue(pistols.contains(pistol));
@@ -55,13 +42,12 @@ public class HeroTest
     }
 
     @Test
-    public void testStealPistol()
-    {
-        Hero unAutreHero = new Hero();
-        unAutreHero.addPistol(pistol);
+    public void testStealPistol() {
+        Hero otherHero = new Hero();
+        otherHero.addPistol(pistol);
         hero.addPistol(pistol);
         assertTrue(heroHavePistol(hero, pistol));
-        assertFalse(heroHavePistol(unAutreHero, pistol));
+        assertFalse(heroHavePistol(otherHero, pistol));
     }
 
     private Boolean heroHavePistol(Hero hero, Pistol pistol) {
@@ -70,17 +56,14 @@ public class HeroTest
     }
 
     @Test
-    public void testTotalStrength(){
-        // puissance personnelle
+    public void testTotalStrength() {
         hero.setStrength(1);
 
-        // puissance de pistols
         hero.addPistol(pistol); // 100
 
-        Pistol petitPistol = new Pistol(10);
-        hero.addPistol(petitPistol); // 10
+        Pistol smallPistol = new Pistol(10);
+        hero.addPistol(smallPistol); // 10
 
-        // puissance total
         assertEquals(111, hero.totalStrength());
     }
 }

@@ -1,16 +1,17 @@
 package hero;
 
 public class Pistol {
-    private int power = 0;
-    private Hero hero = null;
+    private int power;
+    private Hero hero;
 
     public Pistol() {
+        power = 0;
+        hero = null;
     }
 
     public Pistol(int power) {
         this.power = power;
     }
-
 
     public Hero getHero() {
         return hero;

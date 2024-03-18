@@ -10,54 +10,44 @@ import strategies.PokemonAttack;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SpecialHeroTest
-{
-    private SpecialHero unSpecialHero;
-    private Pistol unPistol;
-
+public class SpecialHeroTest {
+    private SpecialHero specialHero;
+    private Pistol pistol;
     private Pokemon pokemon;
 
-    public SpecialHeroTest()
-    {
-    }
-
     @BeforeEach
-    public void setUp()
-    {
-        unSpecialHero = new SpecialHero("Batman", 1);
-        unPistol = new Pistol();
-        unPistol.setPower(100);
+    public void setUp() {
+        specialHero = new SpecialHero("Batman", 1);
+        pistol = new Pistol();
+        pistol.setPower(100);
         pokemon = new Pokemon("pikachu", 10);
         Attack attack = new Attack("thunder", 1000);
         pokemon.addAttack(attack);
     }
 
     @AfterEach
-    public void tearDown()
-    {
+    public void tearDown() {
     }
 
     @Test
-    public void testAttack()
-    {
-        unSpecialHero.increaseStrength(100);
-        unSpecialHero.addPistol(unPistol);
-        unSpecialHero.setAttackStrategy(PistolAttack.getInstance());
-        assertEquals(201, unSpecialHero.attack());
+    public void testAttack() {
+        specialHero.increaseStrength(100);
+        specialHero.addPistol(pistol);
+        specialHero.setAttackStrategy(PistolAttack.getInstance());
+        assertEquals(201, specialHero.attack());
     }
 
     @Test
     public void testSetAttackStrategy() {
-        unSpecialHero.setAttackStrategy(PokemonAttack.getInstance());
-        unSpecialHero.addWeapons(pokemon);
-        assertEquals(1001, unSpecialHero.attack());
+        specialHero.setAttackStrategy(PokemonAttack.getInstance());
+        specialHero.addWeapons(pokemon);
+        assertEquals(1001, specialHero.attack());
     }
 
     @Test
     public void testAddWeapons() {
-        unSpecialHero.addWeapons(pokemon);
-        unSpecialHero.setAttackStrategy(PokemonAttack.getInstance());
-        assertEquals(1001, unSpecialHero.attack());
+        specialHero.addWeapons(pokemon);
+        specialHero.setAttackStrategy(PokemonAttack.getInstance());
+        assertEquals(1001, specialHero.attack());
     }
-
 }

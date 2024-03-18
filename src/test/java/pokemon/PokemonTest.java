@@ -1,5 +1,6 @@
 package pokemon;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,9 +11,13 @@ public class PokemonTest {
     private Attack strongAttack;
 
     @BeforeEach
-    public void setUp() { // throws java.lang.Exception
+    public void setUp() {
         pikachu = new Pokemon();
         strongAttack = new Attack();
+    }
+
+    @AfterEach
+    public void tearDown() {
     }
 
     @Test
@@ -25,7 +30,6 @@ public class PokemonTest {
     public void testAddAttack() {
         pikachu.addAttack(strongAttack);
         assertEquals(2, pikachu.getAttacks().size());
-
     }
 
     @Test

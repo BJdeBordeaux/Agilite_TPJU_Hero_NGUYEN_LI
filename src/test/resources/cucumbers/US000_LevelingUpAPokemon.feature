@@ -18,3 +18,8 @@ Feature: US_000 Leveling up a Pokemon
       | "Pikachu"    | 1            | 2             | 3             |
       | "Charmander" | 5            | 3             | 8             |
       | "Squirtle"   | 10           | 5             | 15            |
+
+  Scenario: Attempting to level up a Pokemon with a negative number
+    Given a Pokemon named "Bulbasaur" at level 7
+    When I increase the Pokemon's level by -3
+    Then the system should display "Cannot Level Down."

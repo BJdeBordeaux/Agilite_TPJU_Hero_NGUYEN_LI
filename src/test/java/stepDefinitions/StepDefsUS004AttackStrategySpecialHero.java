@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import hero.SpecialHero;
 import interfaces.AttackStrategy;
+import interfaces.SpecialWeapon;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,6 +12,7 @@ import strategies.PistolAttack;
 import strategies.PokemonAttack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StepDefsUS004AttackStrategySpecialHero {
     private SpecialHero specialHero;

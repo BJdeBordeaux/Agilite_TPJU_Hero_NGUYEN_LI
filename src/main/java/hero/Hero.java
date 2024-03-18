@@ -11,6 +11,7 @@ public class Hero {
         strength = 0;
         name = "hero.Hero";
     }
+
     public Hero(String name, int strength) {
         this.name = name;
         this.strength = strength;
@@ -33,26 +34,26 @@ public class Hero {
         return name;
     }
 
-    public void setName(String newNom) {
-        this.name = newNom;
+    public void setName(String newName) {
+        this.name = newName;
     }
 
     public void addPistol(Pistol pistol) {
 
-        // désarmer le propriétaire du pistol
-        Hero proprietaire = pistol.getHero();
-        if (proprietaire != null) {
-            proprietaire.removePistol(pistol);
+        // Disarm the owner of the pistol
+        Hero owner = pistol.getHero();
+        if (owner != null) {
+            owner.removePistol(pistol);
             pistol.setHero(null);
         }
-        // armer cet héro
+        // Arm the hero
         this.pistols.add(pistol);
         pistol.setHero(this);
     }
 
     public Pistol removePistol(Pistol pistol) {
-        // si ce pistol est dans la liste des pistol de cet héro
-        // on va le retirer
+        // If this pistol is in the list of pistols of this hero
+        // we will remove it
         if (pistols.contains(pistol)) {
             pistols.remove(pistol);
             return pistol;

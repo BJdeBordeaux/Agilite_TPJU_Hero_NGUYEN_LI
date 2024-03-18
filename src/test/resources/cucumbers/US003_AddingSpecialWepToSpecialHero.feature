@@ -1,8 +1,7 @@
 Feature: Enhancing a SpecialHero with Special Weapons
-
-  As a SpecialHero,
-  I want to be able to augment my abilities with special weapons,
-  So that I can wield unique powers and strengthen my combat prowess.
+  As a Player,
+  I want to be able to add special weapons to special hero,
+  So that he can have multiple weapons to attack with.
 
   Scenario Outline: Adding a special weapon to a SpecialHero
     Given a SpecialHero named <SpecialHeroName>
@@ -15,3 +14,9 @@ Feature: Enhancing a SpecialHero with Special Weapons
       | "Superman"       | "Pikachu"   | 50          |
       | "Batman"         | "Charizard" | 45          |
       | "Wonder Woman"   | "Bulbasaur" | 60          |
+
+  Scenario: SpecialHero strength cannot increases with negative input
+    Given a SpecialHero named "Spiderman"
+    And a Pokemon special weapon "Pikachu" at level -30
+    When I add the Pokemon special weapon "Pikachu" to "Spiderman"
+    Then the system refuses adding with the message "Cannot add negative level Pokemon."

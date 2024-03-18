@@ -1,6 +1,5 @@
 Feature: Empowering Hero with Pistol
-
-  As a player,
+  As a Player,
   I want to be able to increase my hero's power when acquiring a pistol,
   So that I can utilize firearms to enhance my capabilities in combat.
 

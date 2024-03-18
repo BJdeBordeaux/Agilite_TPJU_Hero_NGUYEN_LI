@@ -16,6 +16,7 @@ public class Pokemon implements SpecialWeapon {
         attacks = new ArrayList<>();
         attacks.add(quickAttack);
     }
+
     public Pokemon(String name, int level) {
         this.name = name;
         this.level = level;
@@ -50,8 +51,14 @@ public class Pokemon implements SpecialWeapon {
         attacks.add(attack);
     }
 
-    public void levelUp(int x) {
-        level += x;
+    public String levelUp(int x) {
+        if (x >= 0) {
+            level += x;
+            return "Level Up Successful.";
+        }
+        else {
+            return "Cannot Level Down.";
+        }
     }
 
     @Override

@@ -9,6 +9,7 @@ import java.util.List;
 
 public final class PokemonAttack implements AttackStrategy {
     private static PokemonAttack instance;
+
     @Override
     public int attack(Hero hero, List<SpecialWeapon> specialWeapons) {
         int counter = hero.getStrength();
@@ -19,6 +20,7 @@ public final class PokemonAttack implements AttackStrategy {
         }
         return counter;
     }
+
     public static PokemonAttack getInstance() {
         if (instance == null) {
             instance = new PokemonAttack();

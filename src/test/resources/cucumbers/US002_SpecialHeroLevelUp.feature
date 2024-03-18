@@ -1,7 +1,7 @@
 Feature: US_002 SpecialHero level up
-  As a SpecialHero,
-  I want to be able to level up my strength,
-  So that I can become stronger and more capable.
+  As a Player,
+  I want to be able to level up my special hero's strength,
+  So that he can become stronger and more capable.
 
   Scenario: SpecialHero strength increases successfully
     Given a SpecialHero with strength 100
@@ -18,4 +18,9 @@ Feature: US_002 SpecialHero level up
       | "Legolas"       | 80              | 30               | 110              |
       | "Gandalf"       | 120             | 10               | 130              |
       | "Frodo"         | 50              | 25               | 75               |
+
+  Scenario: SpecialHero strength cannot increases with negative input
+    Given a SpecialHero with strength 120
+    When the strength is increased by -20
+    Then the system refuses increasing with the message "Cannot Level Down."
 
